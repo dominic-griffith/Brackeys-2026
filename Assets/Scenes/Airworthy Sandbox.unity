@@ -282,8 +282,8 @@ Transform:
   m_GameObject: {fileID: 16176282}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.31559, y: -0.51287, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.56, y: 0.14, z: 0}
+  m_LocalScale: {x: 1.1503, y: 1.1503, z: 1.1503}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2037754197}
@@ -316,8 +316,8 @@ Transform:
   m_GameObject: {fileID: 137986859}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.71302, y: -0.04961, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.96468, y: -0.067163, z: 0}
+  m_LocalScale: {x: 1.3536, y: 1.3536, z: 1.3536}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 184870217}
@@ -616,7 +616,7 @@ GameObject:
   - component: {fileID: 382630870}
   - component: {fileID: 382630872}
   - component: {fileID: 382630871}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlayPen Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -759,7 +759,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: -0.5, y: 0}
-  m_ConnectedAnchor: {x: -2.259164, y: -0.7149106}
+  m_ConnectedAnchor: {x: -3.0575404, y: -0.9677139}
   m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:
@@ -2049,8 +2049,8 @@ Transform:
   m_GameObject: {fileID: 1375383395}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.58429, y: 0.11377, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.7913, y: 0.15398, z: 0}
+  m_LocalScale: {x: 1.3536, y: 1.3536, z: 1.3536}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1441389973}
@@ -2227,7 +2227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 886251e9a18ece04ea8e61686c173e1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachinePositionComposer
-  CameraDistance: 10
+  CameraDistance: 15
   DeadZoneDepth: 0
   Composition:
     ScreenPosition: {x: 0, y: 0}
@@ -2271,7 +2271,7 @@ MonoBehaviour:
     CustomLookAtTarget: 0
   Lens:
     FieldOfView: 60
-    OrthographicSize: 5.3220663
+    OrthographicSize: 3.5
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -2298,7 +2298,7 @@ Transform:
   m_GameObject: {fileID: 1406699847}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.17, y: 0.6, z: -10}
+  m_LocalPosition: {x: -2.54, y: 1.05, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2316,7 +2316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f453f694addf4275988fac205bc91968, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineConfiner2D
-  BoundingShape2D: {fileID: 0}
+  BoundingShape2D: {fileID: 1749102501}
   Damping: 0.5
   SlowingDistance: 5
   OversizeWindow:
@@ -2337,7 +2337,7 @@ GameObject:
   - component: {fileID: 1441389971}
   - component: {fileID: 1441389975}
   - component: {fileID: 1441389974}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Standard Door Size
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2480,7 +2480,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: -0.5, y: 0}
-  m_ConnectedAnchor: {x: 3.9546466, y: -1.1121278}
+  m_ConnectedAnchor: {x: 5.3534145, y: -1.5053954}
   m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:
@@ -2542,8 +2542,8 @@ Transform:
   m_GameObject: {fileID: 1501999492}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.58429, y: 0.11377, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.7913, y: 0.15398, z: 0}
+  m_LocalScale: {x: 1.3536, y: 1.3536, z: 1.3536}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2097765209}
@@ -2988,7 +2988,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1749102502}
   - component: {fileID: 1749102501}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MapBounds
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3011,7 +3011,7 @@ PolygonCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -3041,10 +3041,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 9, y: 5}
-      - {x: -9, y: 5}
-      - {x: -9, y: -5}
-      - {x: 9, y: -5}
+    - - {x: 12.4, y: 6.95}
+      - {x: -12.4, y: 6.95}
+      - {x: -12.4, y: -7}
+      - {x: 12.4, y: -7}
   m_UseDelaunayMesh: 1
 --- !u!4 &1749102502
 Transform:
@@ -3086,8 +3086,8 @@ Transform:
   m_GameObject: {fileID: 1895992356}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.20134, y: 0.03295, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.27209, y: 0.044587, z: 0}
+  m_LocalScale: {x: 1.3536, y: 1.3536, z: 1.3536}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2137925225}
@@ -3158,7 +3158,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.3220663
+  orthographic size: 3.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -3183,7 +3183,7 @@ Transform:
   m_GameObject: {fileID: 1905772044}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.17, y: 0.6, z: -10}
+  m_LocalPosition: {x: -2.54, y: 1.05, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3426,7 +3426,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: -0.5, y: 0}
-  m_ConnectedAnchor: {x: -5.8599997, y: -1.4888229}
+  m_ConnectedAnchor: {x: -7.931691, y: -2.0152898}
   m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:
@@ -3614,7 +3614,7 @@ GameObject:
   - component: {fileID: 2068209517}
   - component: {fileID: 2068209521}
   - component: {fileID: 2068209520}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Standard Door Size (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3757,7 +3757,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: -0.5, y: 0}
-  m_ConnectedAnchor: {x: -5.7659807, y: 4.9059753}
+  m_ConnectedAnchor: {x: -7.8044267, y: 6.640709}
   m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:
@@ -4140,11 +4140,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1408568387024875093, guid: ab8e2916479941148acdc2258913ccd4, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -2.17
+      value: -2.54
       objectReference: {fileID: 0}
     - target: {fileID: 1408568387024875093, guid: ab8e2916479941148acdc2258913ccd4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.6
+      value: 1.05
       objectReference: {fileID: 0}
     - target: {fileID: 1408568387024875093, guid: ab8e2916479941148acdc2258913ccd4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4160,6 +4160,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3696535442567180560, guid: ab8e2916479941148acdc2258913ccd4, type: 3}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3696535442567180560, guid: ab8e2916479941148acdc2258913ccd4, type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
