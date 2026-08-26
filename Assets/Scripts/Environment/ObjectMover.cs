@@ -1,11 +1,15 @@
 using System.Collections;
 using UnityEngine;
+using System;
 
 // Allows attached game object to be moved & reset
 public class ObjectMover : MonoBehaviour
 {
+    [Header("Movement Settings")]
     [SerializeField] private Vector3 _targetPosition;
     [SerializeField] private float _timeToMove = 30f;
+
+    public event Action OnMovementCompleted;
 
     private Vector3 _originalPosition;
     private Coroutine _moveCoroutine;
@@ -15,15 +19,10 @@ public class ObjectMover : MonoBehaviour
         _originalPosition = transform.localPosition;
     }
 
-    private void Start()
-    {
-        MoveObjectToTargetPosition();
-    }
-
     public void ResetObjectPosition()
     {
         StopMovement();
-        transform.position = _originalPosition;
+        transform.localPosition = _originalPosition;
     }
 
     private void StopMovement()
@@ -37,11 +36,13 @@ public class ObjectMover : MonoBehaviour
 
     public void MoveObjectToTargetPosition()
     {
+        StopMovement();
         _moveCoroutine = StartCoroutine(MoveObjectCoroutine());
     }
 
     private IEnumerator MoveObjectCoroutine()
     {
+
         float elapsedTime = 0f;
         Vector3 startingPosition = transform.localPosition;
         while (elapsedTime < _timeToMove)
@@ -52,5 +53,7 @@ public class ObjectMover : MonoBehaviour
             yield return null;
         }
         transform.localPosition = _targetPosition;
+        _moveCoroutine = null;
+        OnMovementCompleted?.Invoke();
     }
 }
