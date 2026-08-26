@@ -33,7 +33,7 @@ public class PlayerInteraction : MonoBehaviour
     public void Interact(InputAction.CallbackContext context)
     {
         // The interaction button was pressed.
-        if (context.performed)
+        if (context.started)
         {
             BeginInteraction();
         }
