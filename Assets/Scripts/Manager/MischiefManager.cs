@@ -38,6 +38,9 @@ public class MischiefManager : MonoBehaviour
     private readonly List<MischiefAction> _activeMischiefs = new();
     private Coroutine _mischiefCoroutine;
 
+    public int SuccessfulMischiefs { get; private set; }
+    public int FailedMischiefs { get; private set; }
+
     private void Start()
     {
         // Subscribe once to every mischief's start and end events.
@@ -115,12 +118,11 @@ public class MischiefManager : MonoBehaviour
 
     private void StartRandomMischief()
     {
-        List<MischiefAction> validActions =
-            _mischiefActions.FindAll(action => action != null);
+        // Only Actions that are idle
+        List<MischiefAction> validActions = _mischiefActions.FindAll(action => action != null && action.CurrentState == MischiefState.Idle);
 
         if (validActions.Count == 0)
         {
-            Debug.LogWarning("There are no mischief actions available.");
             return;
         }
 
@@ -145,6 +147,18 @@ public class MischiefManager : MonoBehaviour
     {
         // Remove the finished mischief from the active list.
         _activeMischiefs.Remove(action);
+
+        // Check the result stored by MischiefAction.
+        if (action.LastResult == MischiefResult.Success)
+        {
+            SuccessfulMischiefs++;
+            Debug.Log($"{action.name} succeeded! " +$"Total successes: {SuccessfulMischiefs}");
+        }
+        else if (action.LastResult == MischiefResult.Failure)
+        {
+            FailedMischiefs++;
+            Debug.Log($"{action.name} failed! " + $"Total failures: {FailedMischiefs}");
+        }
 
         Debug.Log($"{action.name} ended. " +$"Active mischiefs: {_activeMischiefs.Count}");
     }

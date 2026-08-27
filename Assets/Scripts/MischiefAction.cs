@@ -1,9 +1,23 @@
 using System;
 using UnityEngine;
 
+public enum MischiefState
+{
+    Idle,
+    InProgress,
+}
+
+public enum MischiefResult
+{
+    Success,
+    Failure
+}
+
 public abstract class MischiefAction : MonoBehaviour
 {
-    public bool IsActive { get; private set; }
+    public MischiefState CurrentState { get; private set; } = MischiefState.Idle;
+    public MischiefResult? LastResult { get; private set; }
+    //public bool IsActive => CurrentState == MischiefState.InProgress;
 
     public event Action<MischiefAction> OnStarted;
     public event Action<MischiefAction> OnEnded;
@@ -14,23 +28,35 @@ public abstract class MischiefAction : MonoBehaviour
 
     public void StartAction()
     {
-        if (IsActive)
+        if(CurrentState != MischiefState.Idle)
             return;
 
-        IsActive = true;
+        CurrentState = MischiefState.InProgress;
+        LastResult = null;
 
         PerformAction();
         OnStarted?.Invoke(this); //Notify subscribers that the action has started
     }
 
-    public void EndAction()
+    public void WinAction()
     {
-        if (!IsActive)
+        CompleteAction(MischiefResult.Success);
+    }
+
+    public void FailAction()
+    {
+        CompleteAction(MischiefResult.Failure);
+    }
+
+    private void CompleteAction(MischiefResult result)
+    {
+        if (CurrentState != MischiefState.InProgress)
             return;
 
-        ResetAction();
+        CurrentState = MischiefState.Idle;
+        LastResult = result;
 
-        IsActive = false;
+        ResetAction();
         OnEnded?.Invoke(this); //Notify subscribers that the action has ended
     }
 }

@@ -4,10 +4,10 @@ public class CupMischief : MischiefAction
 {
     [SerializeField] private ObjectMover _objectMover;
 
-    private void Start()
-    {
-        _objectMover.OnMovementCompleted += HandleMovementCompleted;
-    }
+    //private void Start()
+    //{
+    //    _objectMover.OnMovementCompleted += HandleMovementCompleted;
+    //}
 
     protected override void PerformAction()
     {
@@ -21,19 +21,26 @@ public class CupMischief : MischiefAction
         _objectMover.ResetObjectPosition();
     }
 
-    private void HandleMovementCompleted()
+    //private void HandleMovementCompleted()
+    //{
+    //    Debug.Log("The player did not save the cup in time!");
+    //    EndAction();
+    //}
+
+    private void FailCup()
     {
         Debug.Log("The player did not save the cup in time!");
-        EndAction();
+        FailAction();
     }
 
     public void SaveCup()
     {
-        if (!IsActive)
+        // The player can only save an active cup.
+        if (CurrentState != MischiefState.InProgress)
             return;
 
         Debug.Log("The player saved the cup!");
-        EndAction();
+        WinAction();
     }
 
 }
