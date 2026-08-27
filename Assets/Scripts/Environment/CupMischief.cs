@@ -29,7 +29,7 @@ public class CupMischief : MischiefAction
 
     private void FailCup()
     {
-        Debug.Log("The player did not save the cup in time!");
+        Debug.Log("The player did not save the CUP in time!");
         FailAction();
     }
 
@@ -39,7 +39,7 @@ public class CupMischief : MischiefAction
         if (CurrentState != MischiefState.InProgress)
             return;
 
-        Debug.Log("The player saved the cup!");
+        Debug.Log("The player saved the CUP!");
         WinAction();
     }
 
