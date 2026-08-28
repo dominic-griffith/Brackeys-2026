@@ -1,10 +1,11 @@
 using System;
 using UnityEngine;
+using System.Collections;
 
 public enum MischiefState
 {
     Idle,
-    InProgress,
+    InProgress
 }
 
 public enum MischiefResult
@@ -15,12 +16,16 @@ public enum MischiefResult
 
 public abstract class MischiefAction : MonoBehaviour
 {
+    [Header("Completion")]
+    [SerializeField] private float _completionDelay = 2f;
     public MischiefState CurrentState { get; private set; } = MischiefState.Idle;
     public MischiefResult? LastResult { get; private set; }
     //public bool IsActive => CurrentState == MischiefState.InProgress;
 
     public event Action<MischiefAction> OnStarted;
     public event Action<MischiefAction> OnEnded;
+
+    private bool _isCompleting;
 
     protected abstract void PerformAction();
 
@@ -33,6 +38,7 @@ public abstract class MischiefAction : MonoBehaviour
 
         CurrentState = MischiefState.InProgress;
         LastResult = null;
+        _isCompleting = false;
 
         PerformAction();
         OnStarted?.Invoke(this); //Notify subscribers that the action has started
@@ -50,13 +56,25 @@ public abstract class MischiefAction : MonoBehaviour
 
     private void CompleteAction(MischiefResult result)
     {
-        if (CurrentState != MischiefState.InProgress)
+        if (CurrentState != MischiefState.InProgress || _isCompleting)
             return;
 
-        CurrentState = MischiefState.Idle;
+        _isCompleting = true;
+        StartCoroutine(CompleteActionAfterDelay(result));
+    }
+
+    private IEnumerator CompleteActionAfterDelay(MischiefResult result)
+    {
+        yield return new WaitForSeconds(_completionDelay);
+
         LastResult = result;
+        CurrentState = MischiefState.Idle;
 
         ResetAction();
-        OnEnded?.Invoke(this); //Notify subscribers that the action has ended
+
+        _isCompleting = false;
+
+        // Notify subscribers after the delay and reset.
+        OnEnded?.Invoke(this);
     }
 }
