@@ -3,6 +3,8 @@ using UnityEngine;
 public class FightMischief : MischiefAction
 {
     [SerializeField] private StateSpriteController _stateSpriteController;
+    [SerializeField] private Lure _lureOne;
+    [SerializeField] private Lure _lureTwo;
     [SerializeField] private ObjectMover _catOne;
     [SerializeField] private ObjectMover _catTwo;
 
@@ -10,6 +12,8 @@ public class FightMischief : MischiefAction
     {
         Debug.Log("FIGHT Mischief started!");
         _stateSpriteController.SetMischief();
+        _lureOne.ResetLure();
+        _lureTwo.ResetLure();
         _catOne.MoveObjectToTargetPosition();
         _catTwo.MoveObjectToTargetPosition();
     }

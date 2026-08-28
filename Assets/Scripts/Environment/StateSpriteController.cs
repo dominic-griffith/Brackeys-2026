@@ -16,6 +16,10 @@ public class StateSpriteController : MonoBehaviour
     [SerializeField] private GameObject _savedObject;
     [SerializeField] private GameObject _mischiefObject;
 
+    [Header("Individual Cats")]
+    [SerializeField] private GameObject[] _mischiefCats;
+    [SerializeField] private GameObject[] _savedCats;
+
     [Header("Starting State")]
     [SerializeField] private State _startingState = State.Idle;
 
@@ -25,6 +29,11 @@ public class StateSpriteController : MonoBehaviour
     private void Awake()
     {
         SetState(_startingState);
+
+        foreach (GameObject savedCat in _savedCats)
+        {
+            savedCat.SetActive(false);
+        }
     }
 
     public void SetState(State newState)
@@ -41,6 +50,7 @@ public class StateSpriteController : MonoBehaviour
 
     public void SetIdle()
     {
+        ResetIndividualCats();
         SetState(State.Idle);
     }
 
@@ -58,5 +68,41 @@ public class StateSpriteController : MonoBehaviour
     {
         SetState(State.Mischief);
     }
+
+    public void SetIndividualSaved(int catIndex)
+    {
+        if (catIndex < 0 ||
+            catIndex >= _mischiefCats.Length ||
+            catIndex >= _savedCats.Length)
+        {
+            return;
+        }
+
+        // Both parents must remain active while cats have different states.
+        _mischiefObject.SetActive(true);
+        _savedObject.SetActive(true);
+
+        _mischiefCats[catIndex].SetActive(false);
+        _savedCats[catIndex].SetActive(true);
+    }
+    private void ResetIndividualCats()
+    {
+        foreach (GameObject mischiefCat in _mischiefCats)
+        {
+            if (mischiefCat != null)
+            {
+                mischiefCat.SetActive(true);
+            }
+        }
+
+        foreach (GameObject savedCat in _savedCats)
+        {
+            if (savedCat != null)
+            {
+                savedCat.SetActive(false);
+            }
+        }
+    }
+
 
 }
