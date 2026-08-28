@@ -6,6 +6,11 @@ public class PromptPlayer : MonoBehaviour
     [SerializeField] private GameObject _promptUI;
     [SerializeField] private UnityEvent _onInteract;
 
+    private void Awake()
+    {
+        
+    }
+
     public void ShowPrompt(bool show)
     {
         if (_promptUI != null)
