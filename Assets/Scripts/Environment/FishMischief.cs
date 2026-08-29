@@ -19,7 +19,7 @@ public class FishMischief : MischiefAction
         // Implement the logic for resetting the fish mischief action here.
     }
 
-    private void FailFish()
+    public void FailFish()
     {
         Debug.Log("The player did not save the FISH in time!");
         _stateSpriteController.SetFailed();

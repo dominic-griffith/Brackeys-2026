@@ -27,7 +27,7 @@ public class CupMischief : MischiefAction
     //    EndAction();
     //}
 
-    private void FailCup()
+    public void FailCup()
     {
         Debug.Log("The player did not save the CUP in time!");
         FailAction();
