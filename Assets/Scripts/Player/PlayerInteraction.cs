@@ -5,10 +5,14 @@ public class PlayerInteraction : MonoBehaviour
 {
     private Camera _mainCamera;
     private Draggable _currentInteractable;
+    public PlayerInput playerInput;
+    public InputAction focusAction;
 
     private void Awake()
     {
         _mainCamera = Camera.main;
+        focusAction = playerInput.actions.FindActionMap("Player").FindAction("Focus");
+
     }
 
     private void Update()
@@ -35,12 +39,14 @@ public class PlayerInteraction : MonoBehaviour
         // The interaction button was pressed.
         if (context.started)
         {
+            focusAction.Disable();
             BeginInteraction();
         }
 
         // The interaction button was released.
         if (context.canceled)
         {
+            focusAction.Enable();
             EndInteraction();
         }
     }
