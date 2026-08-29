@@ -26,7 +26,7 @@ public class FightMischief : MischiefAction
         _stateSpriteController.SetIdle();
     }
 
-    private void FailFight()
+    public void FailFight()
     {
         Debug.Log("The player did ot stop the FIGHT in time!");
         FailAction();
