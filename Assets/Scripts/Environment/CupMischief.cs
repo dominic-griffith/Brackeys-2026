@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class CupMischief : MischiefAction
 {
+    [SerializeField] private StateSpriteController _stateSpriteController;
     [SerializeField] private ObjectMover _objectMover;
 
     //private void Start()
@@ -12,6 +13,7 @@ public class CupMischief : MischiefAction
     protected override void PerformAction()
     {
         Debug.Log("Cup Mischief started!");
+        _stateSpriteController.SetMischief();
         _objectMover.MoveObjectToTargetPosition();
     }
 
@@ -19,6 +21,7 @@ public class CupMischief : MischiefAction
     {
         Debug.Log("Cup Mischief reset!");
         _objectMover.ResetObjectPosition();
+        _stateSpriteController.SetIdle();
     }
 
     //private void HandleMovementCompleted()
@@ -30,6 +33,7 @@ public class CupMischief : MischiefAction
     public void FailCup()
     {
         Debug.Log("The player did not save the CUP in time!");
+        _stateSpriteController.SetFailed();
         FailAction();
     }
 
@@ -40,6 +44,7 @@ public class CupMischief : MischiefAction
             return;
 
         Debug.Log("The player saved the CUP!");
+        _stateSpriteController.SetSaved();
         WinAction();
     }
 
