@@ -367,6 +367,17 @@ CapsuleCollider2D:
   m_CorrespondingSourceObject: {fileID: 8654603446715401577, guid: b92973483690a144f8497a381e231cac, type: 3}
   m_PrefabInstance: {fileID: 3517799317050511079}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &150380893 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4181132321057231032, guid: b92973483690a144f8497a381e231cac, type: 3}
+  m_PrefabInstance: {fileID: 3517799317050511079}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150380889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6f7ee831191a7248abf47b61a098bb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ImageChanger
 --- !u!1 &151278514 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3855642318301570654, guid: b92973483690a144f8497a381e231cac, type: 3}
@@ -382,6 +393,17 @@ CapsuleCollider2D:
   m_CorrespondingSourceObject: {fileID: 8654603446715401577, guid: b92973483690a144f8497a381e231cac, type: 3}
   m_PrefabInstance: {fileID: 1251406128}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &151278519 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4181132321057231032, guid: b92973483690a144f8497a381e231cac, type: 3}
+  m_PrefabInstance: {fileID: 1251406128}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 151278514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6f7ee831191a7248abf47b61a098bb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ImageChanger
 --- !u!1 &196479213 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3855642318301570654, guid: b92973483690a144f8497a381e231cac, type: 3}
@@ -397,6 +419,17 @@ CapsuleCollider2D:
   m_CorrespondingSourceObject: {fileID: 8654603446715401577, guid: b92973483690a144f8497a381e231cac, type: 3}
   m_PrefabInstance: {fileID: 1077870580}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &196479218 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4181132321057231032, guid: b92973483690a144f8497a381e231cac, type: 3}
+  m_PrefabInstance: {fileID: 1077870580}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 196479213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6f7ee831191a7248abf47b61a098bb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ImageChanger
 --- !u!1 &207695797
 GameObject:
   m_ObjectHideFlags: 0
@@ -3073,13 +3106,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: fish_0 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6145518901278408384, guid: b92973483690a144f8497a381e231cac, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
       propertyPath: _onDragEnded.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
       propertyPath: _onDragStarted.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
       propertyPath: _onDragEnded.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -3090,6 +3127,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1807935984}
     - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
+      propertyPath: _onDragEnded.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1985243243}
+    - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
       propertyPath: _onDragStarted.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
@@ -3098,12 +3139,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1807935984}
     - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
+      propertyPath: _onDragStarted.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1985243243}
+    - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
       propertyPath: _onDragEnded.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
       propertyPath: _onDragEnded.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetMischief
+      objectReference: {fileID: 0}
+    - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
+      propertyPath: _onDragEnded.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: ShowStateTwo
       objectReference: {fileID: 0}
     - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
       propertyPath: _onDragStarted.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -3114,12 +3163,24 @@ PrefabInstance:
       value: SetSaved
       objectReference: {fileID: 0}
     - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
+      propertyPath: _onDragStarted.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: ShowStateOne
+      objectReference: {fileID: 0}
+    - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
       propertyPath: _onDragEnded.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: StateSpriteController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
+      propertyPath: _onDragEnded.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: ImageChanger, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
       propertyPath: _onDragStarted.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: StateSpriteController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
+      propertyPath: _onDragStarted.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: ImageChanger, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
       propertyPath: _onDragEnded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -5008,13 +5069,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: fish_0 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6145518901278408384, guid: b92973483690a144f8497a381e231cac, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
       propertyPath: _onDragEnded.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
       propertyPath: _onDragStarted.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
       propertyPath: _onDragEnded.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -5025,6 +5090,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1807935984}
     - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
+      propertyPath: _onDragEnded.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 196479218}
+    - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
       propertyPath: _onDragStarted.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
@@ -5033,12 +5102,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1807935984}
     - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
+      propertyPath: _onDragStarted.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 196479218}
+    - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
       propertyPath: _onDragEnded.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
       propertyPath: _onDragEnded.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetMischief
+      objectReference: {fileID: 0}
+    - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
+      propertyPath: _onDragEnded.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: ShowStateTwo
       objectReference: {fileID: 0}
     - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
       propertyPath: _onDragStarted.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -5049,12 +5126,24 @@ PrefabInstance:
       value: SetSaved
       objectReference: {fileID: 0}
     - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
+      propertyPath: _onDragStarted.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: ShowStateOne
+      objectReference: {fileID: 0}
+    - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
       propertyPath: _onDragEnded.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: StateSpriteController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
+      propertyPath: _onDragEnded.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: ImageChanger, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
       propertyPath: _onDragStarted.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: StateSpriteController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
+      propertyPath: _onDragStarted.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: ImageChanger, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
       propertyPath: _onDragEnded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -5254,7 +5343,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 3.5
+  orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -5279,7 +5368,7 @@ Transform:
   m_GameObject: {fileID: 1102997037}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.80746, y: 1.97049, z: -15}
+  m_LocalPosition: {x: 30.87, y: 16.56, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6409,13 +6498,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: fish_0 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6145518901278408384, guid: b92973483690a144f8497a381e231cac, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
       propertyPath: _onDragEnded.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
       propertyPath: _onDragStarted.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
       propertyPath: _onDragEnded.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -6426,6 +6519,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1807935984}
     - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
+      propertyPath: _onDragEnded.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 151278519}
+    - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
       propertyPath: _onDragStarted.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
@@ -6434,12 +6531,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1807935984}
     - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
+      propertyPath: _onDragStarted.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 151278519}
+    - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
       propertyPath: _onDragEnded.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
       propertyPath: _onDragEnded.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetMischief
+      objectReference: {fileID: 0}
+    - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
+      propertyPath: _onDragEnded.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: ShowStateTwo
       objectReference: {fileID: 0}
     - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
       propertyPath: _onDragStarted.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -6450,12 +6555,24 @@ PrefabInstance:
       value: SetSaved
       objectReference: {fileID: 0}
     - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
+      propertyPath: _onDragStarted.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: ShowStateOne
+      objectReference: {fileID: 0}
+    - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
       propertyPath: _onDragEnded.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: StateSpriteController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
+      propertyPath: _onDragEnded.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: ImageChanger, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
       propertyPath: _onDragStarted.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: StateSpriteController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
+      propertyPath: _onDragStarted.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: ImageChanger, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
       propertyPath: _onDragEnded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -7699,6 +7816,54 @@ MonoBehaviour:
       - m_Target: {fileID: 709811945}
         m_TargetAssemblyTypeName: CircularCountdown, Assembly-CSharp
         m_MethodName: ResetCountdown
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 150380893}
+        m_TargetAssemblyTypeName: ImageChanger, Assembly-CSharp
+        m_MethodName: ShowStateOne
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 196479218}
+        m_TargetAssemblyTypeName: ImageChanger, Assembly-CSharp
+        m_MethodName: ShowStateOne
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1985243243}
+        m_TargetAssemblyTypeName: ImageChanger, Assembly-CSharp
+        m_MethodName: ShowStateOne
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 151278519}
+        m_TargetAssemblyTypeName: ImageChanger, Assembly-CSharp
+        m_MethodName: ShowStateOne
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9534,6 +9699,17 @@ CapsuleCollider2D:
   m_CorrespondingSourceObject: {fileID: 8654603446715401577, guid: b92973483690a144f8497a381e231cac, type: 3}
   m_PrefabInstance: {fileID: 832987859}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1985243243 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4181132321057231032, guid: b92973483690a144f8497a381e231cac, type: 3}
+  m_PrefabInstance: {fileID: 832987859}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1985243238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6f7ee831191a7248abf47b61a098bb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ImageChanger
 --- !u!1 &1996777291
 GameObject:
   m_ObjectHideFlags: 0
@@ -10080,62 +10256,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: fish_0
       objectReference: {fileID: 0}
-    - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
-      propertyPath: _onDragEnded.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
-      propertyPath: _onDragStarted.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
-      propertyPath: _onDragEnded.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+    - target: {fileID: 6145518901278408384, guid: b92973483690a144f8497a381e231cac, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
       propertyPath: _onDragEnded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1807935984}
     - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
-      propertyPath: _onDragStarted.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
       propertyPath: _onDragStarted.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1807935984}
-    - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
-      propertyPath: _onDragEnded.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
-      propertyPath: _onDragEnded.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetMischief
-      objectReference: {fileID: 0}
-    - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
-      propertyPath: _onDragStarted.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
-      propertyPath: _onDragStarted.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetSaved
-      objectReference: {fileID: 0}
-    - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
-      propertyPath: _onDragEnded.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: StateSpriteController, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
-      propertyPath: _onDragStarted.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: StateSpriteController, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
-      propertyPath: _onDragEnded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 6639372054698144724, guid: b92973483690a144f8497a381e231cac, type: 3}
-      propertyPath: _onDragStarted.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 6731560600847856510, guid: b92973483690a144f8497a381e231cac, type: 3}
       propertyPath: m_Camera
       value: 

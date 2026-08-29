@@ -7,6 +7,7 @@ public class FishJump : MonoBehaviour
 {
     [Header("Fish")]
     [SerializeField] private List<GameObject> _fishObjects = new();
+    
 
     [Header("Jump Path")]
     [SerializeField] private Transform _apexPoint;
@@ -178,6 +179,17 @@ public class FishJump : MonoBehaviour
         }
 
         jumpingFish.transform.position = landingPosition;
+
+        ImageChanger imageChanger = jumpingFish.GetComponentInChildren<ImageChanger>(true);
+
+        if (imageChanger != null)
+        {
+            imageChanger.ShowStateTwo();
+        }
+        else
+        {
+            Debug.LogWarning( $"{jumpingFish.name} does not have an ImageChanger in its children.", jumpingFish);
+        }
 
         // Enable collisions and physics once the fish lands.
         SetFishPhysics(jumpingFish, true);
