@@ -7,17 +7,17 @@ public class PlungerStretch : MonoBehaviour
     [SerializeField] private SpriteRenderer _catSprite;
     [SerializeField] private Rigidbody2D _catRigidbody;
     [SerializeField] private Collider2D _catCollider;
+    [SerializeField] private Transform _catAttachmentPoint;
 
     [Header("Stretch")]
     [SerializeField] private float _stretchAmount = 1f;
     [SerializeField] private float _maximumYScale = 5f;
 
-    [Header("Carry Position")]
-    [SerializeField] private Vector2 _carryOffset;
 
     private Vector3 _originalCatScale;
     private RigidbodyConstraints2D _originalCatConstraints;
     private Transform _originalCatParent;
+    private CapsuleCollider2D _plungerCollider;
 
     private float _attachedY;
 
@@ -27,6 +27,7 @@ public class PlungerStretch : MonoBehaviour
 
     private void Awake()
     {
+        _plungerCollider = GetComponent<CapsuleCollider2D>();
         _originalCatScale = _catSprite.transform.localScale;
         _originalCatConstraints = _catRigidbody.constraints;
         _originalCatParent = _catRigidbody.transform.parent;
@@ -72,8 +73,33 @@ public class PlungerStretch : MonoBehaviour
             return;
         }
 
+        if (_catAttachmentPoint == null)
+        {
+            Debug.LogWarning("Cat attachment point is not assigned.", this);
+            return;
+        }
+
+        // Bottom-center of the plunger collider.
+        Vector2 plungerBottom = new Vector2(
+            _plungerCollider.bounds.center.x,
+            _plungerCollider.bounds.min.y
+        );
+
+        // Move the plunger so its bottom-center lines up
+        // with the attachment point on the cat.
+        Vector2 movementNeeded =
+            (Vector2)_catAttachmentPoint.position - plungerBottom;
+
+        transform.position += new Vector3(
+            movementNeeded.x,
+            movementNeeded.y,
+            0f
+        );
+
         _attachedY = transform.position.y;
         _isStretching = true;
+
+        Debug.Log("Plunger connected to the cat attachment point.", this);
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -93,6 +119,12 @@ public class PlungerStretch : MonoBehaviour
 
     private void AttachCat()
     {
+        if (_catAttachmentPoint == null)
+        {
+            Debug.LogWarning("Cat attachment point is not assigned.", this);
+            return;
+        }
+
         _isStretching = false;
         _isCarrying = true;
 
@@ -109,14 +141,30 @@ public class PlungerStretch : MonoBehaviour
         _catRigidbody.linearVelocity = Vector2.zero;
         _catRigidbody.angularVelocity = 0f;
 
-        // Disable physics while the cat is carried.
+        // Disable physics while carrying the cat.
         _catRigidbody.simulated = false;
 
-        // Make the cat follow the plunger trigger.
-        _catRigidbody.transform.SetParent(transform);
-        _catRigidbody.transform.localPosition = _carryOffset;
+        // Find the bottom-center of the plunger.
+        Vector2 plungerBottom = new Vector2(
+            _plungerCollider.bounds.center.x,
+            _plungerCollider.bounds.min.y
+        );
 
-        Debug.Log("Cat attached to the plunger.");
+        // Move the cat until its attachment point lines up
+        // with the bottom-center of the plunger.
+        Vector2 movementNeeded =
+            plungerBottom - (Vector2)_catAttachmentPoint.position;
+
+        _catRigidbody.transform.position += new Vector3(
+            movementNeeded.x,
+            movementNeeded.y,
+            0f
+        );
+
+        // Parent the cat after aligning it.
+        _catRigidbody.transform.SetParent(transform, true);
+
+        Debug.Log("Cat attached using its attachment point.", this);
     }
 
     public void DropCat()
