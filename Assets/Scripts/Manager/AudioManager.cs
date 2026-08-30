@@ -195,4 +195,17 @@ public class AudioManager : MonoBehaviour
         return false;
     }
 
+    public float GetClipLength(string name)
+    {
+        Sound s = FindSound(name);
+        if (s == null) return 0f;
+        return s.Clip.length;
+    }
+
+    public void SetPan(string name, float panValue)
+    {
+        Sound s = FindSound(name);
+        if (s == null) return;
+        s.Source.panStereo = panValue;
+    }    
 }

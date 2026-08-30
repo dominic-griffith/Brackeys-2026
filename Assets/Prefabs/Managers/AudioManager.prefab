@@ -52,6 +52,116 @@ MonoBehaviour:
     Clip: {fileID: 8300000, guid: 255519ee54fff01499f8e96e114752e0, type: 3}
     AudioType: 0
     Volume: 1
-    Pitch: 0
+    Pitch: 1
     Loop: 0
+    AllowedCameras: []
     Source: {fileID: 0}
+  - Name: CoffeeScrape
+    Clip: {fileID: 8300000, guid: e1ea6ec3fc17a6c47b91d622c6eacff5, type: 3}
+    AudioType: 0
+    Volume: 0.223
+    Pitch: 0.81
+    Loop: 1
+    AllowedCameras:
+    - {fileID: 0}
+    Source: {fileID: 0}
+  - Name: CoffeeBreak
+    Clip: {fileID: 8300000, guid: 5a8f535bcce76d549a755affdffe726f, type: 3}
+    AudioType: 0
+    Volume: 0.408
+    Pitch: 1
+    Loop: 0
+    AllowedCameras:
+    - {fileID: 0}
+    Source: {fileID: 0}
+  - Name: PlungerConnection
+    Clip: {fileID: 8300000, guid: dcbc9498c1caac640967e96a2255b451, type: 3}
+    AudioType: 0
+    Volume: 0.305
+    Pitch: 1
+    Loop: 0
+    AllowedCameras:
+    - {fileID: 0}
+    Source: {fileID: 0}
+  - Name: FlushingToilet
+    Clip: {fileID: 8300000, guid: 93f3898d48cbf6949ba9dd306dab88df, type: 3}
+    AudioType: 0
+    Volume: 0.305
+    Pitch: 1
+    Loop: 0
+    AllowedCameras:
+    - {fileID: 0}
+    Source: {fileID: 0}
+  - Name: CatToiletPanic
+    Clip: {fileID: 8300000, guid: c3bbeafc2595f074b9a7ce27a77e526e, type: 3}
+    AudioType: 0
+    Volume: 0.305
+    Pitch: 1
+    Loop: 0
+    AllowedCameras:
+    - {fileID: 0}
+    Source: {fileID: 0}
+  - Name: catangrymeow1
+    Clip: {fileID: 8300000, guid: de47d456ce0c6f44f9849c433c9f6c86, type: 3}
+    AudioType: 0
+    Volume: 0.305
+    Pitch: 1
+    Loop: 0
+    AllowedCameras:
+    - {fileID: 0}
+    Source: {fileID: 0}
+  - Name: cathiss1
+    Clip: {fileID: 8300000, guid: 879c62c85010c1e428f89ae93c3219bb, type: 3}
+    AudioType: 0
+    Volume: 0.305
+    Pitch: 1
+    Loop: 0
+    AllowedCameras:
+    - {fileID: 0}
+    Source: {fileID: 0}
+  - Name: cathiss2
+    Clip: {fileID: 8300000, guid: e27b71f771fcffe42b177283af4efff0, type: 3}
+    AudioType: 0
+    Volume: 0.305
+    Pitch: 1
+    Loop: 0
+    AllowedCameras:
+    - {fileID: 0}
+    Source: {fileID: 0}
+  - Name: cathiss3
+    Clip: {fileID: 8300000, guid: 3802e43a53cd908419b73c05cfcc4878, type: 3}
+    AudioType: 0
+    Volume: 0.305
+    Pitch: 1
+    Loop: 0
+    AllowedCameras:
+    - {fileID: 0}
+    Source: {fileID: 0}
+  - Name: cathiss4
+    Clip: {fileID: 8300000, guid: bfd5d12ae3237ac4a80fb123464a2cdf, type: 3}
+    AudioType: 0
+    Volume: 0.305
+    Pitch: 1
+    Loop: 0
+    AllowedCameras:
+    - {fileID: 0}
+    Source: {fileID: 0}
+  - Name: cathiss5
+    Clip: {fileID: 8300000, guid: fb6643f1773d4a14586f1d76753b61aa, type: 3}
+    AudioType: 0
+    Volume: 0.305
+    Pitch: 1
+    Loop: 0
+    AllowedCameras:
+    - {fileID: 0}
+    Source: {fileID: 0}
+  - Name: cathiss6
+    Clip: {fileID: 8300000, guid: eb7e7890c708fcf41865b87c1ceebc81, type: 3}
+    AudioType: 0
+    Volume: 0.305
+    Pitch: 1
+    Loop: 0
+    AllowedCameras:
+    - {fileID: 0}
+    Source: {fileID: 0}
+  _cinemachineBrain: {fileID: 0}
