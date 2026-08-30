@@ -1353,10 +1353,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7353033554711120793, guid: 4b3e6967fa70fb44fa2adfcc5cdc0893, type: 3}
-      propertyPath: _difficulty
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 8003435324741305547, guid: 4b3e6967fa70fb44fa2adfcc5cdc0893, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -3446,10 +3442,6 @@ PrefabInstance:
       propertyPath: _masterMixerGroup
       value: 
       objectReference: {fileID: 24300002, guid: ebef7dab1e0258246a4ea11c083623e6, type: 2}
-    - target: {fileID: 3281060264343309541, guid: e331420f35bbb694ab4e5d298dee307d, type: 3}
-      propertyPath: _sounds.Array.size
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

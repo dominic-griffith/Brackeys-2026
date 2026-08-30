@@ -200,4 +200,12 @@ MonoBehaviour:
     AllowedCameras:
     - {fileID: 0}
     Source: {fileID: 0}
+  - Name: Completion
+    Clip: {fileID: 8300000, guid: 0c0a1a21820150c4abb9a8833a615c23, type: 3}
+    AudioType: 0
+    Volume: 0.158
+    Pitch: 1
+    Loop: 0
+    AllowedCameras: []
+    Source: {fileID: 0}
   _cinemachineBrain: {fileID: 0}
