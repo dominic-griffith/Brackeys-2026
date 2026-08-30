@@ -55,4 +55,29 @@ public class GameManager : MonoBehaviour
     {
         SetDifficulty(GameDifficulty.Hard);
     }
+
+    public void SetDifficultyFromDropdown(int dropdownValue)
+    {
+        switch (dropdownValue)
+        {
+            case 0:
+                SetDifficulty(GameDifficulty.Easy);
+                break;
+
+            case 1:
+                SetDifficulty(GameDifficulty.Medium);
+                break;
+
+            case 2:
+                SetDifficulty(GameDifficulty.Hard);
+                break;
+
+            default:
+                Debug.LogWarning(
+                    $"Invalid difficulty dropdown value: {dropdownValue}",
+                    this
+                );
+                break;
+        }
+    }
 }
