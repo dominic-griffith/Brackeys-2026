@@ -2,6 +2,7 @@ using NUnit.Framework;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MischiefManager : MonoBehaviour
@@ -14,6 +15,17 @@ public class MischiefManager : MonoBehaviour
         Medium,
         Hard
     }
+
+
+    [Serializable]
+    public struct MischiefLocationData
+    {
+        public string mischiefName;         // e.g., "CupMischief"
+        public Transform interactableArea;  // Where the mischief happens
+        public MischiefIndicator indicator; // The specific UI element for this mischief
+    }
+    [Header("UI Indicators")]
+    [SerializeField] private List<MischiefLocationData> _mischiefLocations;
 
 
     [Serializable]
@@ -139,6 +151,14 @@ public class MischiefManager : MonoBehaviour
             _activeMischiefs.Add(action);
         }
 
+        // Find the mapped data for this active mischief
+        MischiefLocationData data = _mischiefLocations.Find(loc => action.name.Contains(loc.mischiefName));
+
+        if (data.indicator != null && data.interactableArea != null)
+        {
+            data.indicator.Activate(data.interactableArea);
+        }
+
         Debug.Log($"{action.name} started. " + $"Active mischiefs: {_activeMischiefs.Count}");
     }
 
@@ -147,6 +167,14 @@ public class MischiefManager : MonoBehaviour
     {
         // Remove the finished mischief from the active list.
         _activeMischiefs.Remove(action);
+
+        // Find the mapped data and turn off its indicator
+        MischiefLocationData data = _mischiefLocations.Find(loc => action.name.Contains(loc.mischiefName));
+
+        if (data.indicator != null)
+        {
+            data.indicator.Deactivate();
+        }
 
         // Check the result stored by MischiefAction.
         if (action.LastResult == MischiefResult.Success)

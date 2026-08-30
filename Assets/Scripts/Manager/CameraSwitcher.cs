@@ -1,12 +1,15 @@
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System;
 
 public class CameraSwitcher : MonoBehaviour
 {
     private CinemachineCamera _newCamera;
     public PlayerInput playerInput;
     public InputAction moveAction;
+
+    public static event Action<bool> OnAnyCameraToggled;
 
     private void Awake()
     {
@@ -23,6 +26,10 @@ public class CameraSwitcher : MonoBehaviour
 
             // Re-enabling Movement Input
             moveAction.Enable();
+
+            // Broadcast that the event camera is CLOSED
+            OnAnyCameraToggled?.Invoke(false);
+
         }
         else
         {
@@ -31,6 +38,9 @@ public class CameraSwitcher : MonoBehaviour
 
             // Disabling Movement Input while in Event Camera.
             moveAction.Disable();
+
+            // Broadcast that the event camera is OPEN
+            OnAnyCameraToggled?.Invoke(true);
         }
     }
 }
