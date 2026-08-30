@@ -139,7 +139,7 @@ public class CupMischief : MischiefAction
         }
 
         Debug.Log("The player saved the CUP!");
-
+        AudioManager.GetInstance().Play("Completion");
         _activeCup.objectResetter.ResetObjectPosition();
         _activeCup.stateSpriteController.SetSaved();
         WinAction();

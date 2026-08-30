@@ -8,6 +8,7 @@ public class FishMischief : MischiefAction
     protected override void PerformAction()
     {
         Debug.Log("Fish Mischief started!");
+        AudioManager.GetInstance().Play("FishJumpOut");
         _fishJump.Jump();
         _stateSpriteController.SetMischief();
     }
@@ -34,6 +35,8 @@ public class FishMischief : MischiefAction
             return;
 
         Debug.Log("The player saved the FISH!");
+        AudioManager.GetInstance().Play("FishDropIntoWater");
+        AudioManager.GetInstance().Play("Completion");
         _stateSpriteController.SetSaved();
         WinAction();
     }

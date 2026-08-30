@@ -37,6 +37,7 @@ public class TolietMischief : MischiefAction
 
         _stateSpriteController.SetSaved();
         Debug.Log("The player saved the cat from DROWNING!");
+        AudioManager.GetInstance().Play("Completion");
         WinAction();
     }
 }

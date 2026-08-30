@@ -51,7 +51,7 @@ public class FishJump : MonoBehaviour
         {
             return;
         }
-
+        
         int randomIndex = Random.Range(0, _fishObjects.Count);
         _activeFish = _fishObjects[randomIndex];
 
@@ -210,5 +210,6 @@ public class FishJump : MonoBehaviour
         _jumpCoroutine = null;
 
         _onFishLanded.Invoke();
+        AudioManager.GetInstance().Play("FishGround");
     }
 }

@@ -58,6 +58,7 @@ public class FightMischief : MischiefAction
 
         Debug.Log("The player broke up the FIGHT!");
         StopAllHissing();
+        AudioManager.GetInstance().Play("Completion");
         WinAction();
     }
 

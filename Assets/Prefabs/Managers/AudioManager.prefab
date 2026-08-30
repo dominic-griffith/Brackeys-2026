@@ -164,4 +164,40 @@ MonoBehaviour:
     AllowedCameras:
     - {fileID: 0}
     Source: {fileID: 0}
+  - Name: CatFightFail
+    Clip: {fileID: 8300000, guid: 5778fe39b3b5dd246b681e1cd2f92ea3, type: 3}
+    AudioType: 0
+    Volume: 0.158
+    Pitch: 1
+    Loop: 0
+    AllowedCameras:
+    - {fileID: 0}
+    Source: {fileID: 0}
+  - Name: FishGround
+    Clip: {fileID: 8300000, guid: b0a6a5054900c764b8b37a94ef59182a, type: 3}
+    AudioType: 0
+    Volume: 0.615
+    Pitch: 1
+    Loop: 0
+    AllowedCameras:
+    - {fileID: 0}
+    Source: {fileID: 0}
+  - Name: FishJumpOut
+    Clip: {fileID: 8300000, guid: f19a0366f339b5f4b9e62314230f052a, type: 3}
+    AudioType: 0
+    Volume: 0.158
+    Pitch: 1
+    Loop: 0
+    AllowedCameras:
+    - {fileID: 0}
+    Source: {fileID: 0}
+  - Name: FishDropIntoWater
+    Clip: {fileID: 8300000, guid: 393e5bb88a22130429e5764fb41e69f4, type: 3}
+    AudioType: 0
+    Volume: 0.158
+    Pitch: 1
+    Loop: 0
+    AllowedCameras:
+    - {fileID: 0}
+    Source: {fileID: 0}
   _cinemachineBrain: {fileID: 0}
