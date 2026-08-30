@@ -12,18 +12,11 @@ public class MischiefManager : MonoBehaviour
     [SerializeField] private Health _playerHealth;
     [SerializeField, Min(1)] private int _damagePerFailure = 1;
 
-    public enum Difficulty
-    {
-        Easy,
-        Medium,
-        Hard
-    }
-
 
     [Serializable]
     private class DifficultySettings
     {
-        public Difficulty difficulty;
+        public GameDifficulty difficulty;
 
         [Min(0f)]
         public float minimumTimeBetweenMischief = 5f;
@@ -36,8 +29,9 @@ public class MischiefManager : MonoBehaviour
     }
 
     [Header("Difficulty")]
-    [SerializeField] private Difficulty _currentDifficulty;
     [SerializeField] private List<DifficultySettings> _difficultySettings;
+
+    private GameDifficulty _currentDifficulty = GameDifficulty.Medium;
 
     private readonly List<MischiefAction> _activeMischiefs = new();
     private Coroutine _mischiefCoroutine;
@@ -56,6 +50,26 @@ public class MischiefManager : MonoBehaviour
             action.OnStarted += HandleMischiefStarted;
             action.OnEnded += HandleMischiefEnded;
         }
+
+        if (GameManager.Instance != null)
+        {
+            _currentDifficulty =
+                GameManager.Instance.Difficulty;
+        }
+        else
+        {
+            _currentDifficulty = GameDifficulty.Medium;
+
+            Debug.LogWarning(
+                "GameManager was not found. Using Medium difficulty.",
+                this
+            );
+        }
+
+        Debug.Log(
+            $"Mischief difficulty: {_currentDifficulty}",
+            this
+        );
 
         StartMischiefLoop();
     }
@@ -77,7 +91,7 @@ public class MischiefManager : MonoBehaviour
         _mischiefCoroutine = null;
     }
 
-    public void SetDifficulty(Difficulty newDifficulty)
+    public void SetDifficulty(GameDifficulty newDifficulty)
     {
         _currentDifficulty = newDifficulty;
         StartMischiefLoop();
