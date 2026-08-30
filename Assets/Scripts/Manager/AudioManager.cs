@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Rendering;
+using Unity.Cinemachine;
 
 public class AudioManager : MonoBehaviour
 {
@@ -12,6 +13,11 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioMixerGroup _musicMixerGroup;
     [SerializeField] private AudioMixerGroup _SFXMixerGroup;
     [SerializeField] private Sound[] _sounds;
+
+    [Header("Cinemachine")]
+    [SerializeField] private CinemachineBrain _cinemachineBrain;
+
+    private ICinemachineCamera _previousCamera;
 
     private void Awake()
     {
@@ -55,6 +61,27 @@ public class AudioManager : MonoBehaviour
         PlayMusic();
     }
 
+    private void Update()
+    {
+        // Skip if the brain hasn't been found yet
+        if (_cinemachineBrain == null) return;
+
+        ICinemachineCamera currentCamera = _cinemachineBrain.ActiveVirtualCamera;
+
+        // Only process audio checks on the exact frame the camera changes
+        if (currentCamera != _previousCamera)
+        {
+            foreach (Sound sound in _sounds)
+            {
+                sound.Source.mute = !CanPlayFromCurrentCamera(sound);
+            }
+
+            // Update the tracker
+            _previousCamera = currentCamera;
+        }
+    }
+
+
     public static AudioManager GetInstance()
     {
         return Instance;
@@ -69,9 +96,25 @@ public class AudioManager : MonoBehaviour
     //ex use: AudioManager.GetInstance().Play("name");
     public void Play(string name)
     {
-        Sound s = FindSound(name);
-        if (s == null) return;
-        s.Source.Play();
+        Sound sound = FindSound(name);
+
+        if (sound == null)
+        {
+            return;
+        }
+
+        if (!CanPlayFromCurrentCamera(sound))
+        {
+            Debug.Log(
+                $"Sound '{name}' cannot play from the active camera.",
+                this
+            );
+
+            return;
+        }
+        // Mute the sound if it is not allowed in the current camera
+        sound.Source.mute = !CanPlayFromCurrentCamera(sound);
+        sound.Source.Play();
     }
 
     public void Stop(string name)
@@ -109,4 +152,47 @@ public class AudioManager : MonoBehaviour
             decibels
         );
     }
+
+    private bool CanPlayFromCurrentCamera(Sound sound)
+    {
+        // An empty list allows the sound to play from every camera.
+        if (sound.AllowedCameras == null ||
+            sound.AllowedCameras.Length == 0)
+        {
+            return true;
+        }
+
+        if (_cinemachineBrain == null)
+        {
+            Camera mainCamera = Camera.main;
+
+            if (mainCamera != null)
+            {
+                _cinemachineBrain =
+                    mainCamera.GetComponent<CinemachineBrain>();
+            }
+        }
+
+        if (_cinemachineBrain == null)
+        {
+            Debug.LogWarning(
+                "CinemachineBrain could not be found.",
+                this
+            );
+
+            return false;
+        }
+
+        foreach (CinemachineCamera allowedCamera
+                in sound.AllowedCameras)
+        {
+            if ((allowedCamera != null) && ((_cinemachineBrain.ActiveVirtualCamera as CinemachineCamera) == allowedCamera))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
 }

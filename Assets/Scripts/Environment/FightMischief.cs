@@ -28,7 +28,7 @@ public class FightMischief : MischiefAction
 
     public void FailFight()
     {
-        Debug.Log("The player did ot stop the FIGHT in time!");
+        Debug.Log("The player did not stop the FIGHT in time!");
         FailAction();
     }
 

@@ -165,6 +165,7 @@ public class PlungerStretch : MonoBehaviour
         _catRigidbody.transform.SetParent(transform, true);
 
         Debug.Log("Cat attached using its attachment point.", this);
+        AudioManager.GetInstance().Play("PlungerConnection");
     }
 
     public void DropCat()

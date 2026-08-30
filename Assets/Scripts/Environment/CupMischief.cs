@@ -120,7 +120,7 @@ public class CupMischief : MischiefAction
         {
             return;
         }
-
+        AudioManager.GetInstance().Play("CoffeeBreak");
         Debug.Log("The player did not save the CUP!");
 
         // Reset this variant's object before showing its failed state.

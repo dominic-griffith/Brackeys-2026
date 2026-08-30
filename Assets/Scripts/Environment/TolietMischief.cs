@@ -22,7 +22,9 @@ public class TolietMischief : MischiefAction
 
     public void FailToliet()
     {
-        Debug.Log("The player did ot stop the cat from DROWNING!");
+        Debug.Log("The player did not stop the cat from DROWNING!");
+        AudioManager.GetInstance().Play("FlushingToilet");
+        AudioManager.GetInstance().Play("CatToiletPanic");
         _stateSpriteController.SetFailed();
         FailAction();
     }

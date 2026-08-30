@@ -44,6 +44,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ff9fb1ed0664de4d8a39180434e9288, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
+  _masterMixerGroup: {fileID: 0}
   _musicMixerGroup: {fileID: 5879757039150548109, guid: ebef7dab1e0258246a4ea11c083623e6, type: 2}
   _SFXMixerGroup: {fileID: -1288746080904234389, guid: ebef7dab1e0258246a4ea11c083623e6, type: 2}
-  _sounds: []
+  _sounds:
+  - Name: Indicator
+    Clip: {fileID: 8300000, guid: 255519ee54fff01499f8e96e114752e0, type: 3}
+    AudioType: 0
+    Volume: 1
+    Pitch: 0
+    Loop: 0
+    Source: {fileID: 0}

@@ -17,6 +17,7 @@ public class MischiefIndicator : MonoBehaviour
     private RectTransform _rectTransform;
     private Transform _targetArea;
     private Vector3 _originalScale;
+    private CinemachineBrain _brain;
 
     private void Awake()
     {
@@ -25,10 +26,10 @@ public class MischiefIndicator : MonoBehaviour
         gameObject.SetActive(false);
 
         // Find the Unity Camera that possess the CinemachineBrain.
-        CinemachineBrain brain = FindFirstObjectByType<CinemachineBrain>();
-        if (brain != null)
+        _brain = FindFirstObjectByType<CinemachineBrain>();
+        if (_brain != null)
         {
-            _actualRenderCamera = brain.GetComponent<Camera>();
+            _actualRenderCamera = _brain.GetComponent<Camera>();
         }
         else
         {
@@ -59,6 +60,15 @@ public class MischiefIndicator : MonoBehaviour
     {
         _targetArea = targetArea;
         gameObject.SetActive(true);
+        AudioManager.GetInstance().Play("Indicator");
+
+        // Resolve visibility based on the currently active camera
+        if (_brain != null && _playerCamera != null)
+        {
+            // If the active camera is not the player camera, we are in a mischief event
+            bool isEventCameraActive =_brain.ActiveVirtualCamera != (_playerCamera as ICinemachineCamera);
+            _rectTransform.localScale = isEventCameraActive ? Vector3.zero : _originalScale;
+        }
     }
 
     public void Deactivate()
