@@ -8,9 +8,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Start menu.unity
     guid: 3f3c92fe54626a54f91b31fbaf42fed9
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Airworthy Sandbox.unity
     guid: 62070261b0978a64f830d162b13309aa
+  - enabled: 1
+    path: Assets/Scenes/Main.unity
+    guid: c68f52135fff0da4c85f1e1d71e180cf
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

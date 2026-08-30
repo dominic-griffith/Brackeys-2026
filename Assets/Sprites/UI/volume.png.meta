@@ -120,10 +120,10 @@ TextureImporter:
         serializedVersion: 2
         x: 110
         y: 254
-        width: 74
+        width: 252
         height: 94
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -136,121 +136,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: volume_1
-      rect:
-        serializedVersion: 2
-        x: 167
-        y: 255
-        width: 36
-        height: 56
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0605afd51b04287c0800000000000000
-      internalID: -4070619982659432352
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: volume_2
-      rect:
-        serializedVersion: 2
-        x: 210
-        y: 257
-        width: 13
-        height: 78
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c7c71be6a4c5a8c10800000000000000
-      internalID: 2056557654602513532
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: volume_3
-      rect:
-        serializedVersion: 2
-        x: 229
-        y: 257
-        width: 44
-        height: 46
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 45c2bddf27f0d8d80800000000000000
-      internalID: -8246918356085822380
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: volume_4
-      rect:
-        serializedVersion: 2
-        x: 267
-        y: 256
-        width: 47
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c39c5251083f2be10800000000000000
-      internalID: 2212098098428496188
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: volume_5
-      rect:
-        serializedVersion: 2
-        x: 315
-        y: 254
-        width: 50
-        height: 57
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a4b908ad086f33260800000000000000
-      internalID: 7076270472811289418
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 57d9f7648420a4544add0d7902e36e3c
     internalID: 0
     vertices: []
     indices: 

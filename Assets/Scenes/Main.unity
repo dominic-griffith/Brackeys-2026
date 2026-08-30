@@ -8958,6 +8958,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 776002842563032188, guid: ab8e2916479941148acdc2258913ccd4, type: 3}
+      propertyPath: _backSprite
+      value: 
+      objectReference: {fileID: -8894531281158279759, guid: 3b75ecebcdbb6354bb905ad74e168739, type: 3}
+    - target: {fileID: 776002842563032188, guid: ab8e2916479941148acdc2258913ccd4, type: 3}
+      propertyPath: _leftSprite
+      value: 
+      objectReference: {fileID: 2018255162231593255, guid: 678245b126c256048985e031819afa9f, type: 3}
+    - target: {fileID: 776002842563032188, guid: ab8e2916479941148acdc2258913ccd4, type: 3}
+      propertyPath: _frontSprite
+      value: 
+      objectReference: {fileID: 8265333006708780974, guid: 203b719bb2d31114f9bccfaf9e171219, type: 3}
+    - target: {fileID: 776002842563032188, guid: ab8e2916479941148acdc2258913ccd4, type: 3}
+      propertyPath: _rightSprite
+      value: 
+      objectReference: {fileID: 9203954956759660754, guid: fe2458b99cb18e543a77376b090210c9, type: 3}
     - target: {fileID: 1385228798599944458, guid: ab8e2916479941148acdc2258913ccd4, type: 3}
       propertyPath: Lens.OrthographicSize
       value: 3
@@ -8993,6 +9009,18 @@ PrefabInstance:
     - target: {fileID: 1408568387024875093, guid: ab8e2916479941148acdc2258913ccd4, type: 3}
       propertyPath: m_SizeDelta.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1408568387024875093, guid: ab8e2916479941148acdc2258913ccd4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 1408568387024875093, guid: ab8e2916479941148acdc2258913ccd4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 1408568387024875093, guid: ab8e2916479941148acdc2258913ccd4, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.36
       objectReference: {fileID: 0}
     - target: {fileID: 1408568387024875093, guid: ab8e2916479941148acdc2258913ccd4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9042,6 +9070,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1408568387024875093, guid: ab8e2916479941148acdc2258913ccd4, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3696535442567180560, guid: ab8e2916479941148acdc2258913ccd4, type: 3}
       propertyPath: m_Name
       value: Player
@@ -9050,6 +9082,30 @@ PrefabInstance:
       propertyPath: BoundingShape2D
       value: 
       objectReference: {fileID: 1749102501}
+    - target: {fileID: 3949015220849245217, guid: ab8e2916479941148acdc2258913ccd4, type: 3}
+      propertyPath: m_Size.x
+      value: 0.8225223
+      objectReference: {fileID: 0}
+    - target: {fileID: 3949015220849245217, guid: ab8e2916479941148acdc2258913ccd4, type: 3}
+      propertyPath: m_Size.y
+      value: 1.3365078
+      objectReference: {fileID: 0}
+    - target: {fileID: 3949015220849245217, guid: ab8e2916479941148acdc2258913ccd4, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.07094747
+      objectReference: {fileID: 0}
+    - target: {fileID: 3949015220849245217, guid: ab8e2916479941148acdc2258913ccd4, type: 3}
+      propertyPath: m_Offset.y
+      value: -1.6480694
+      objectReference: {fileID: 0}
+    - target: {fileID: 3949015220849245217, guid: ab8e2916479941148acdc2258913ccd4, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 2.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 3949015220849245217, guid: ab8e2916479941148acdc2258913ccd4, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 4.79
+      objectReference: {fileID: 0}
     - target: {fileID: 6762165819234479879, guid: ab8e2916479941148acdc2258913ccd4, type: 3}
       propertyPath: playerInput
       value: 
@@ -9058,6 +9114,14 @@ PrefabInstance:
       propertyPath: focusAction.m_Name
       value: Focus
       objectReference: {fileID: 0}
+    - target: {fileID: 8681387115772047311, guid: ab8e2916479941148acdc2258913ccd4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -41.66666
+      objectReference: {fileID: 0}
+    - target: {fileID: 8698552557273356865, guid: ab8e2916479941148acdc2258913ccd4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 8265333006708780974, guid: 203b719bb2d31114f9bccfaf9e171219, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15770,7 +15834,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
