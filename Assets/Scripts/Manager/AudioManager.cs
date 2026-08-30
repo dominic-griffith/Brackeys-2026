@@ -1,11 +1,14 @@
+using System;
 using UnityEngine;
 using UnityEngine.Audio;
-using System;
+using UnityEngine.Rendering;
 
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
 
+    //[SerializeField] private AudioMixer _masterMixer;
+    [SerializeField] private AudioMixerGroup _masterMixerGroup;
     [SerializeField] private AudioMixerGroup _musicMixerGroup;
     [SerializeField] private AudioMixerGroup _SFXMixerGroup;
     [SerializeField] private Sound[] _sounds;
@@ -94,5 +97,16 @@ public class AudioManager : MonoBehaviour
             return null;
         }
         return s;
+    }
+
+    public void SetMasterVolume(float sliderValue)
+    {
+        float volume = Mathf.Clamp(sliderValue, 0.0001f, 1f);
+        float decibels = Mathf.Log10(volume) * 20f;
+
+        _masterMixerGroup.audioMixer.SetFloat(
+            "MasterExposed",
+            decibels
+        );
     }
 }

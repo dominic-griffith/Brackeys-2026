@@ -9,12 +9,9 @@ public class MischiefManager : MonoBehaviour
 {
     [SerializeField] private List<MischiefAction> _mischiefActions;
 
-    public enum Difficulty
-    {
-        Easy,
-        Medium,
-        Hard
-    }
+    [Header("Player Health")]
+    [SerializeField] private Health _playerHealth;
+    [SerializeField, Min(1)] private int _damagePerFailure = 1;
 
 
     [Serializable]
@@ -31,7 +28,7 @@ public class MischiefManager : MonoBehaviour
     [Serializable]
     private class DifficultySettings
     {
-        public Difficulty difficulty;
+        public GameDifficulty difficulty;
 
         [Min(0f)]
         public float minimumTimeBetweenMischief = 5f;
@@ -44,8 +41,9 @@ public class MischiefManager : MonoBehaviour
     }
 
     [Header("Difficulty")]
-    [SerializeField] private Difficulty _currentDifficulty;
     [SerializeField] private List<DifficultySettings> _difficultySettings;
+
+    private GameDifficulty _currentDifficulty = GameDifficulty.Medium;
 
     private readonly List<MischiefAction> _activeMischiefs = new();
     private Coroutine _mischiefCoroutine;
@@ -64,6 +62,26 @@ public class MischiefManager : MonoBehaviour
             action.OnStarted += HandleMischiefStarted;
             action.OnEnded += HandleMischiefEnded;
         }
+
+        if (GameManager.Instance != null)
+        {
+            _currentDifficulty =
+                GameManager.Instance.Difficulty;
+        }
+        else
+        {
+            _currentDifficulty = GameDifficulty.Medium;
+
+            Debug.LogWarning(
+                "GameManager was not found. Using Medium difficulty.",
+                this
+            );
+        }
+
+        Debug.Log(
+            $"Mischief difficulty: {_currentDifficulty}",
+            this
+        );
 
         StartMischiefLoop();
     }
@@ -85,7 +103,7 @@ public class MischiefManager : MonoBehaviour
         _mischiefCoroutine = null;
     }
 
-    public void SetDifficulty(Difficulty newDifficulty)
+    public void SetDifficulty(GameDifficulty newDifficulty)
     {
         _currentDifficulty = newDifficulty;
         StartMischiefLoop();
@@ -165,7 +183,6 @@ public class MischiefManager : MonoBehaviour
     // Called when any mischief invokes its OnEnded event.
     private void HandleMischiefEnded(MischiefAction action)
     {
-        // Remove the finished mischief from the active list.
         _activeMischiefs.Remove(action);
 
         // Find the mapped data and turn off its indicator
@@ -180,14 +197,38 @@ public class MischiefManager : MonoBehaviour
         if (action.LastResult == MischiefResult.Success)
         {
             SuccessfulMischiefs++;
-            Debug.Log($"{action.name} succeeded! " +$"Total successes: {SuccessfulMischiefs}");
+
+            Debug.Log(
+                $"{action.name} succeeded! " +
+                $"Total successes: {SuccessfulMischiefs}"
+            );
         }
         else if (action.LastResult == MischiefResult.Failure)
         {
             FailedMischiefs++;
-            Debug.Log($"{action.name} failed! " + $"Total failures: {FailedMischiefs}");
+
+            // Damage the player for failing the mischief.
+            if (_playerHealth != null)
+            {
+                _playerHealth.TakeDamage(_damagePerFailure);
+            }
+            else
+            {
+                Debug.LogWarning(
+                    "Player Health is not assigned to MischiefManager.",
+                    this
+                );
+            }
+
+            Debug.Log(
+                $"{action.name} failed! " +
+                $"Total failures: {FailedMischiefs}"
+            );
         }
 
-        Debug.Log($"{action.name} ended. " +$"Active mischiefs: {_activeMischiefs.Count}");
+        Debug.Log(
+            $"{action.name} ended. " +
+            $"Active mischiefs: {_activeMischiefs.Count}"
+        );
     }
 }

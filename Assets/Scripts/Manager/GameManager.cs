@@ -2,18 +2,21 @@ using System;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 
+public enum GameDifficulty
+{
+    Easy,
+    Medium,
+    Hard
+}
+
 public class GameManager : MonoBehaviour
 {
 
     [Header("Game Settings")]
-    [SerializeField] private int _startingLives = 3;
+    [SerializeField] private GameDifficulty _difficulty = GameDifficulty.Medium;
 
     public static GameManager Instance { get; private set; }
-    public int Lives { get; private set; }
-
-    // Events (Subscribe to these events to get notified when lives change or when the game is over)
-    public event Action<int> OnLivesChanged;
-    public event Action OnGameOver;
+    public GameDifficulty Difficulty => _difficulty;
 
     public void Awake()
     {
@@ -31,21 +34,25 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void LoseLife()
+    public void SetDifficulty(GameDifficulty difficulty)
     {
-        if (Lives <= 0)
-            return;
+        _difficulty = difficulty;
 
-        Lives--;
-        OnLivesChanged?.Invoke(Lives);
-
-        if (Lives == 0)
-            OnGameOver?.Invoke();
+        Debug.Log($"Difficulty selected: {_difficulty}");
     }
 
-    public void ResetGame()
+    public void SetEasyDifficulty()
     {
-        Lives = _startingLives;
-        OnLivesChanged?.Invoke(Lives);
+        SetDifficulty(GameDifficulty.Easy);
+    }
+
+    public void SetMediumDifficulty()
+    {
+        SetDifficulty(GameDifficulty.Medium);
+    }
+
+    public void SetHardDifficulty()
+    {
+        SetDifficulty(GameDifficulty.Hard);
     }
 }
