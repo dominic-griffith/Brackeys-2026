@@ -52,6 +52,8 @@ public class MischiefManager : MonoBehaviour
     private readonly List<MischiefAction> _activeMischiefs = new();
     private Coroutine _mischiefCoroutine;
 
+
+    public event Action<int> OnScoreChanged;
     public int SuccessfulMischiefs { get; private set; }
     public int FailedMischiefs { get; private set; }
 
@@ -249,6 +251,8 @@ public class MischiefManager : MonoBehaviour
         if (action.LastResult == MischiefResult.Success)
         {
             SuccessfulMischiefs++;
+
+            OnScoreChanged?.Invoke(SuccessfulMischiefs);
 
             Debug.Log(
                 $"{action.name} succeeded! " +
