@@ -1,34 +1,10 @@
 fileFormatVersion: 2
-guid: 7cf38c7bad66432449787b1571766613
+guid: f85601ffb24f1d54a848f93962b39948
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 317010468468323505
-    second: gameover_0
-  - first:
-      213: 4500970960352770634
-    second: gameover_1
-  - first:
-      213: 7846820034637804003
-    second: gameover_2
-  - first:
-      213: -1303687684276611485
-    second: gameover_3
-  - first:
-      213: 2200968303363549662
-    second: gameover_4
-  - first:
-      213: -4310058061554761629
-    second: gameover_5
-  - first:
-      213: -6410328098414253093
-    second: gameover_6
-  - first:
-      213: -4372939249491367988
-    second: gameover_7
-  - first:
-      213: -7785667102969627686
-    second: gameover_8
+      213: -3503303845644098921
+    second: gameoverred_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -124,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: gameover_0
+      name: gameoverred_0
       rect:
         serializedVersion: 2
-        x: 58
-        y: 252
-        width: 308
-        height: 85
+        x: 97
+        y: 251
+        width: 315
+        height: 84
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1b4722b675f366400800000000000000
-      internalID: 317010468468323505
+      spriteID: 792af14b6b3c16fc0800000000000000
+      internalID: -3503303845644098921
       vertices: []
       indices: 
       edges: []
@@ -149,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: a423a295e10bfb747b856e8b6373023a
+    spriteID: 13cf9d2bbb419af43a5b44b39d8852ef
     internalID: 0
     vertices: []
     indices: 
@@ -159,15 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      gameover_0: 317010468468323505
-      gameover_1: 4500970960352770634
-      gameover_2: 7846820034637804003
-      gameover_3: -1303687684276611485
-      gameover_4: 2200968303363549662
-      gameover_5: -4310058061554761629
-      gameover_6: -6410328098414253093
-      gameover_7: -4372939249491367988
-      gameover_8: -7785667102969627686
+      gameoverred_0: -3503303845644098921
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -38,6 +38,9 @@ public class MischiefManager : MonoBehaviour
 
         [Min(1f)]
         public int maximumActiveMischiefs = 1;
+
+        [Min(0.1f)]
+        public float completionTime = 10f;
     }
 
     [Header("Difficulty")]
@@ -84,6 +87,27 @@ public class MischiefManager : MonoBehaviour
         );
 
         StartMischiefLoop();
+    }
+
+    public float CompletionTime
+    {
+        get
+        {
+            DifficultySettings settings = GetCurrentSettings();
+
+            if (settings != null)
+            {
+                return settings.completionTime;
+            }
+
+            Debug.LogWarning(
+                $"No difficulty settings found for {_currentDifficulty}. " +
+                "Using 10 seconds.",
+                this
+            );
+
+            return 10f;
+        }
     }
 
     public void StartMischiefLoop()

@@ -3,32 +3,6 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoaderManager : MonoBehaviour
 {
-
-    public static SceneLoaderManager Instance;
-
-
-    public void Awake()
-    {
-        //Singleton Design Pattern
-        if (Instance == null)
-        {
-
-            Instance = this;
-            DontDestroyOnLoad(this);
-        }
-        else
-        {
-            Destroy(this.gameObject);
-            return;
-        }
-    }
-
-    public static SceneLoaderManager GetInstance()
-    {
-        return Instance;
-    }
-
-
     //Scene Loading
     public void LoadSceneByNumber(int scene)
     {

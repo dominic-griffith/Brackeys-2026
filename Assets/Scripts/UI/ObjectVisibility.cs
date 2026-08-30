@@ -2,36 +2,51 @@ using UnityEngine;
 
 public class ObjectVisibility : MonoBehaviour
 {
-    [SerializeField] private GameObject _targetObject;
+    [SerializeField] private GameObject[] _targetObjects;
 
     private void Awake()
     {
-        _targetObject.SetActive(false);
+        Hide();
     }
 
     public void Show()
     {
-        if (_targetObject != null)
-        {
-            _targetObject.SetActive(true);
-        }
+        SetObjectsActive(true);
     }
 
     public void Hide()
     {
-        if (_targetObject != null)
-        {
-            _targetObject.SetActive(false);
-        }
+        SetObjectsActive(false);
     }
 
     public void Toggle()
     {
-        if (_targetObject != null)
+        foreach (GameObject targetObject in _targetObjects)
         {
-            _targetObject.SetActive(
-                !_targetObject.activeSelf
-            );
+            if (targetObject == null)
+            {
+                continue;
+            }
+
+            // Use the first valid object's state for the whole group.
+            SetObjectsActive(!targetObject.activeSelf);
+            return;
+        }
+    }
+
+    private void SetObjectsActive(bool isActive)
+    {
+        if (_targetObjects == null)
+        {
+            return;
+        }
+
+        foreach (GameObject targetObject in _targetObjects)
+        {
+            if (targetObject != null)
+            {
+                targetObject.SetActive(isActive);
+            }
         }
     }
 }

@@ -7,9 +7,11 @@ using UnityEngine.Events;
 [RequireComponent(typeof(ObjectResetter))]
 public class ObjectMover : MonoBehaviour
 {
+    [SerializeField] private MischiefManager _mischiefManager;
+
     [Header("Movement Settings")]
     [SerializeField] private Vector3 _targetPosition;
-    [SerializeField] private float _timeToMove = 30f;
+    
 
     [Header("Events")]
     [SerializeField] private UnityEvent _onTargetPositionReached;
@@ -19,13 +21,13 @@ public class ObjectMover : MonoBehaviour
 
     private Vector3 _originalPosition;
     private float _movementSpeed;
+    private float _timeToMove;
+    private bool _movementSpeedCalculated;
 
     private void Awake()
     {
         _objectResetter = GetComponent<ObjectResetter>();
         _originalPosition = transform.localPosition;
-
-        CalculateMovementSpeed();
     }
 
     private void CalculateMovementSpeed()
@@ -47,6 +49,25 @@ public class ObjectMover : MonoBehaviour
     public void MoveObjectToTargetPosition()
     {
         StopMovement();
+
+        if (!_movementSpeedCalculated)
+        {
+            if (_mischiefManager == null)
+            {
+                Debug.LogWarning(
+                    "MischiefManager is not assigned.",
+                    this
+                );
+
+                return;
+            }
+
+            _timeToMove =
+                _mischiefManager.CompletionTime;
+
+            CalculateMovementSpeed();
+            _movementSpeedCalculated = true;
+        }
 
         if (_timeToMove <= 0f)
         {

@@ -46,17 +46,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MischiefManager
   _mischiefActions:
   - {fileID: 0}
-  _currentDifficulty: 2
+  _playerHealth: {fileID: 0}
+  _damagePerFailure: 1
   _difficultySettings:
   - difficulty: 0
-    minimumTimeBetweenMischief: 20
-    maximumTimeBetweenMischief: 28
+    minimumTimeBetweenMischief: 8
+    maximumTimeBetweenMischief: 23
     maximumActiveMischiefs: 3
+    completionTime: 15
   - difficulty: 1
-    minimumTimeBetweenMischief: 12
-    maximumTimeBetweenMischief: 20
-    maximumActiveMischiefs: 4
+    minimumTimeBetweenMischief: 6
+    maximumTimeBetweenMischief: 9
+    maximumActiveMischiefs: 3
+    completionTime: 10
   - difficulty: 2
-    minimumTimeBetweenMischief: 5
-    maximumTimeBetweenMischief: 10
-    maximumActiveMischiefs: 6
+    minimumTimeBetweenMischief: 4
+    maximumTimeBetweenMischief: 7
+    maximumActiveMischiefs: 4
+    completionTime: 8
