@@ -18,7 +18,8 @@ public class Sound
 
     [Header("Camera Restrictions")]
     [Tooltip("Leave empty to allow this sound from every camera.")]
-    public CinemachineCamera[] AllowedCameras;
+    //public CinemachineCamera[] AllowedCameras;
+    public string[] AllowedCameraNames;
 
     [HideInInspector]
     public AudioSource Source;

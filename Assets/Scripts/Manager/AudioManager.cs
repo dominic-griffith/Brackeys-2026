@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Rendering;
 using Unity.Cinemachine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -15,45 +16,70 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioMixerGroup _SFXMixerGroup;
     [SerializeField] private Sound[] _sounds;
 
-    [Header("Cinemachine")]
-    [SerializeField] private CinemachineBrain _cinemachineBrain;
+    //[Header("Cinemachine")]
+    //[SerializeField] private CinemachineBrain _cinemachineBrain;
+    private CinemachineBrain _cinemachineBrain;
 
     private ICinemachineCamera _previousCamera;
 
     private void Awake()
     {
-        //Singleton Design Pattern
         if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+
+            SceneManager.sceneLoaded += HandleSceneLoaded;
         }
         else
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
             return;
         }
 
-
-        //Assign atributes to the sound
-        foreach (Sound s in _sounds)
+        foreach (Sound sound in _sounds)
         {
-            s.Source = gameObject.AddComponent<AudioSource>();
-            s.Source.clip = s.Clip;
+            sound.Source = gameObject.AddComponent<AudioSource>();
+            sound.Source.clip = sound.Clip;
+            sound.Source.volume = sound.Volume;
+            sound.Source.pitch = sound.Pitch;
+            sound.Source.loop = sound.Loop;
 
-            s.Source.volume = s.Volume;
-            s.Source.pitch = s.Pitch;
-            s.Source.loop = s.Loop;
-
-            switch (s.AudioType)
+            switch (sound.AudioType)
             {
-                case (Sound.AudioTypes.SFX):
-                    s.Source.outputAudioMixerGroup = _SFXMixerGroup;
+                case Sound.AudioTypes.SFX:
+                    sound.Source.outputAudioMixerGroup =
+                        _SFXMixerGroup;
                     break;
-                case (Sound.AudioTypes.Music):
-                    s.Source.outputAudioMixerGroup = _musicMixerGroup;
+
+                case Sound.AudioTypes.Music:
+                    sound.Source.outputAudioMixerGroup =
+                        _musicMixerGroup;
                     break;
             }
+        }
+
+        FindCinemachineBrain();
+    }
+
+    private void HandleSceneLoaded(
+    Scene scene,
+    LoadSceneMode loadMode)
+    {
+        _cinemachineBrain = null;
+        _previousCamera = null;
+
+        FindCinemachineBrain();
+    }
+
+    private void FindCinemachineBrain()
+    {
+        Camera mainCamera = Camera.main;
+
+        if (mainCamera != null)
+        {
+            _cinemachineBrain =
+                mainCamera.GetComponent<CinemachineBrain>();
         }
     }
 
@@ -64,20 +90,27 @@ public class AudioManager : MonoBehaviour
 
     private void Update()
     {
-        // Skip if the brain hasn't been found yet
-        if (_cinemachineBrain == null) return;
+        if (_cinemachineBrain == null)
+        {
+            FindCinemachineBrain();
 
-        ICinemachineCamera currentCamera = _cinemachineBrain.ActiveVirtualCamera;
+            if (_cinemachineBrain == null)
+            {
+                return;
+            }
+        }
 
-        // Only process audio checks on the exact frame the camera changes
+        ICinemachineCamera currentCamera =
+            _cinemachineBrain.ActiveVirtualCamera;
+
         if (currentCamera != _previousCamera)
         {
             foreach (Sound sound in _sounds)
             {
-                sound.Source.mute = !CanPlayFromCurrentCamera(sound);
+                sound.Source.mute =
+                    !CanPlayFromCurrentCamera(sound);
             }
 
-            // Update the tracker
             _previousCamera = currentCamera;
         }
     }
@@ -156,38 +189,33 @@ public class AudioManager : MonoBehaviour
 
     private bool CanPlayFromCurrentCamera(Sound sound)
     {
-        // An empty list allows the sound to play from every camera.
-        if (sound.AllowedCameras == null ||
-            sound.AllowedCameras.Length == 0)
+        if (sound.AllowedCameraNames == null ||
+            sound.AllowedCameraNames.Length == 0)
         {
             return true;
         }
 
         if (_cinemachineBrain == null)
         {
-            Camera mainCamera = Camera.main;
-
-            if (mainCamera != null)
-            {
-                _cinemachineBrain =
-                    mainCamera.GetComponent<CinemachineBrain>();
-            }
+            FindCinemachineBrain();
         }
 
-        if (_cinemachineBrain == null)
+        if (_cinemachineBrain == null ||
+            _cinemachineBrain.ActiveVirtualCamera == null)
         {
-            Debug.LogWarning(
-                "CinemachineBrain could not be found.",
-                this
-            );
-
             return false;
         }
 
-        foreach (CinemachineCamera allowedCamera
-                in sound.AllowedCameras)
+        string activeCameraName =
+            _cinemachineBrain.ActiveVirtualCamera.Name;
+
+        foreach (string allowedCameraName
+                 in sound.AllowedCameraNames)
         {
-            if ((allowedCamera != null) && ((_cinemachineBrain.ActiveVirtualCamera as CinemachineCamera) == allowedCamera))
+            if (string.Equals(
+                    activeCameraName,
+                    allowedCameraName,
+                    StringComparison.Ordinal))
             {
                 return true;
             }
@@ -208,5 +236,14 @@ public class AudioManager : MonoBehaviour
         Sound s = FindSound(name);
         if (s == null) return;
         s.Source.panStereo = panValue;
-    }    
+    }
+
+    private void OnDestroy()
+    {
+        if (Instance == this)
+        {
+            SceneManager.sceneLoaded -= HandleSceneLoaded;
+            Instance = null;
+        }
+    }
 }
