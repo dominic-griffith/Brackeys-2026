@@ -8,6 +8,10 @@ public class MischiefManager : MonoBehaviour
 {
     [SerializeField] private List<MischiefAction> _mischiefActions;
 
+    [Header("Player Health")]
+    [SerializeField] private Health _playerHealth;
+    [SerializeField, Min(1)] private int _damagePerFailure = 1;
+
     public enum Difficulty
     {
         Easy,
@@ -145,21 +149,43 @@ public class MischiefManager : MonoBehaviour
     // Called when any mischief invokes its OnEnded event.
     private void HandleMischiefEnded(MischiefAction action)
     {
-        // Remove the finished mischief from the active list.
         _activeMischiefs.Remove(action);
 
-        // Check the result stored by MischiefAction.
         if (action.LastResult == MischiefResult.Success)
         {
             SuccessfulMischiefs++;
-            Debug.Log($"{action.name} succeeded! " +$"Total successes: {SuccessfulMischiefs}");
+
+            Debug.Log(
+                $"{action.name} succeeded! " +
+                $"Total successes: {SuccessfulMischiefs}"
+            );
         }
         else if (action.LastResult == MischiefResult.Failure)
         {
             FailedMischiefs++;
-            Debug.Log($"{action.name} failed! " + $"Total failures: {FailedMischiefs}");
+
+            // Damage the player for failing the mischief.
+            if (_playerHealth != null)
+            {
+                _playerHealth.TakeDamage(_damagePerFailure);
+            }
+            else
+            {
+                Debug.LogWarning(
+                    "Player Health is not assigned to MischiefManager.",
+                    this
+                );
+            }
+
+            Debug.Log(
+                $"{action.name} failed! " +
+                $"Total failures: {FailedMischiefs}"
+            );
         }
 
-        Debug.Log($"{action.name} ended. " +$"Active mischiefs: {_activeMischiefs.Count}");
+        Debug.Log(
+            $"{action.name} ended. " +
+            $"Active mischiefs: {_activeMischiefs.Count}"
+        );
     }
 }
