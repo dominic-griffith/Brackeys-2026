@@ -10137,7 +10137,19 @@ MonoBehaviour:
         m_CallState: 2
   _onDeath:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 108830013}
+        m_TargetAssemblyTypeName: ObjectVisibility, Assembly-CSharp
+        m_MethodName: Toggle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1185833393 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1385228798599944458, guid: ab8e2916479941148acdc2258913ccd4, type: 3}
