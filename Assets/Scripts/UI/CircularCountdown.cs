@@ -5,14 +5,17 @@ using System.Collections;
 
 public class CircularCountdown : MonoBehaviour
 {
+    [SerializeField] private MischiefManager _mischiefManager;
+
     [Header("Countdown")]
     [SerializeField] private Image _countdownImage;
-    [SerializeField] private float _countdownDuration = 5f;
 
     [Header("Events")]
     [SerializeField] private UnityEvent _onCountdownFinished;
 
     private Coroutine _countdownCoroutine;
+    private bool _durationInitialized;
+    private float _countdownDuration;
 
     private void Awake()
     {
@@ -23,6 +26,11 @@ public class CircularCountdown : MonoBehaviour
 
     public void StartCountdown()
     {
+        if (!_durationInitialized)
+        {
+            SetCountdownDuration();
+        }
+
         if (_countdownCoroutine != null)
         {
             StopCoroutine(_countdownCoroutine);
@@ -31,6 +39,25 @@ public class CircularCountdown : MonoBehaviour
         _countdownImage.enabled = true;
 
         _countdownCoroutine = StartCoroutine(CountdownCoroutine());
+    }
+
+    private void SetCountdownDuration()
+    {
+        if (_mischiefManager != null)
+        {
+            _countdownDuration =
+                _mischiefManager.CompletionTime;
+        }
+        else
+        {
+            Debug.LogWarning(
+                $"MischiefManager is not assigned. " +
+                $"Using {_countdownDuration} seconds.",
+                this
+            );
+        }
+
+        _durationInitialized = true;
     }
 
     public void ResetCountdown()
