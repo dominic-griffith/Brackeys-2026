@@ -3,24 +3,32 @@ using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
-    [Header("Health")]
-    [SerializeField] private int _maximumHealth = 3;
-    [SerializeField] private int _startingHealth = 3;
+    [Header("Difficulty")]
+    [SerializeField] private MischiefManager _mischiefManager;
 
     [Header("Events")]
     [SerializeField] private UnityEvent _onHealthChanged;
     [SerializeField] private UnityEvent _onDeath;
 
     public int CurrentHealth { get; private set; }
-    public int MaximumHealth => _maximumHealth;
+    public int MaximumHealth { get; private set; }
 
     private void Awake()
     {
-        CurrentHealth = Mathf.Clamp(
-            _startingHealth,
-            0,
-            _maximumHealth
-        );
+        if (_mischiefManager == null)
+        {
+            Debug.LogError(
+                "MischiefManager is not assigned to Health.",
+                this
+            );
+
+            return;
+        }
+
+        MaximumHealth =
+            _mischiefManager.StartingLives;
+
+        CurrentHealth = MaximumHealth;
     }
 
     public void TakeDamage(int damage)
@@ -45,14 +53,15 @@ public class Health : MonoBehaviour
 
     public void Heal(int amount)
     {
-        if (amount <= 0 || CurrentHealth >= _maximumHealth)
+        if (amount <= 0 ||
+            CurrentHealth >= MaximumHealth)
         {
             return;
         }
 
         CurrentHealth = Mathf.Min(
             CurrentHealth + amount,
-            _maximumHealth
+            MaximumHealth
         );
 
         _onHealthChanged?.Invoke();
@@ -60,7 +69,7 @@ public class Health : MonoBehaviour
 
     public void ResetHealth()
     {
-        CurrentHealth = _maximumHealth;
+        CurrentHealth = MaximumHealth;
         _onHealthChanged?.Invoke();
     }
 }

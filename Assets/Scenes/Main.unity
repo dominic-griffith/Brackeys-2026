@@ -10089,6 +10089,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3696535442567180560, guid: ab8e2916479941148acdc2258913ccd4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1185833392}
+    - targetCorrespondingSourceObject: {fileID: 3696535442567180560, guid: ab8e2916479941148acdc2258913ccd4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1185833401}
   m_SourcePrefab: {fileID: 100100000, guid: ab8e2916479941148acdc2258913ccd4, type: 3}
 --- !u!114 &1185833390 stripped
 MonoBehaviour:
@@ -10118,8 +10121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78274d457438fa5488b1c5d5d590acc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  _maximumHealth: 3
-  _startingHealth: 3
+  _mischiefManager: {fileID: 124673594}
   _onHealthChanged:
     m_PersistentCalls:
       m_Calls:
@@ -10150,6 +10152,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1185833401}
+        m_TargetAssemblyTypeName: TimePause, Assembly-CSharp
+        m_MethodName: TogglePause
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1185833393 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1385228798599944458, guid: ab8e2916479941148acdc2258913ccd4, type: 3}
@@ -10161,6 +10175,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineCamera
+--- !u!114 &1185833401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1185833391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e591a68c26edb941bc2eb9bc4b8b51e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1 &1203449652
 GameObject:
   m_ObjectHideFlags: 0
@@ -10427,7 +10453,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3281060264343309541, guid: e331420f35bbb694ab4e5d298dee307d, type: 3}
       propertyPath: _sounds.Array.data[0].AllowedCameras.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3281060264343309541, guid: e331420f35bbb694ab4e5d298dee307d, type: 3}
       propertyPath: _sounds.Array.data[1].AllowedCameras.Array.size
@@ -18280,14 +18306,6 @@ PrefabInstance:
       propertyPath: _mischiefLocations.Array.data[3].interactableArea
       value: 
       objectReference: {fileID: 2039023152}
-    - target: {fileID: 5995221341080053217, guid: 304bbe928c553ef4c97f7a026fcf4b19, type: 3}
-      propertyPath: _difficultySettings.Array.data[2].maximumTimeBetweenMischief
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5995221341080053217, guid: 304bbe928c553ef4c97f7a026fcf4b19, type: 3}
-      propertyPath: _difficultySettings.Array.data[2].minimumTimeBetweenMischief
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

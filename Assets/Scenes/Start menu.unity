@@ -329,6 +329,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 253638795}
+  - component: {fileID: 253638796}
   m_Layer: 5
   m_Name: Difficulty
   m_TagString: Untagged
@@ -356,6 +357,19 @@ RectTransform:
   m_AnchoredPosition: {x: 948.4701, y: -80.990036}
   m_SizeDelta: {x: 1000, y: 260.711}
   m_Pivot: {x: 1, y: 0.5}
+--- !u!114 &253638796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 253638794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bbbd247f9ca07b4da486c4b73caae0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  _dropdown: {fileID: 1458625417}
 --- !u!1 &257992925
 GameObject:
   m_ObjectHideFlags: 0
@@ -965,17 +979,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8dcc93931caca149ad0e7517aa8b332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneLoaderManager
---- !u!114 &831078657 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7353033554711120793, guid: 4b3e6967fa70fb44fa2adfcc5cdc0893, type: 3}
-  m_PrefabInstance: {fileID: 1027843391}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18c5f4932c3129e4d83465824e46cdad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GameManager
 --- !u!1 &839995411
 GameObject:
   m_ObjectHideFlags: 0
@@ -985,6 +988,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 839995412}
+  - component: {fileID: 839995413}
   m_Layer: 5
   m_Name: Volume
   m_TagString: Untagged
@@ -1012,6 +1016,19 @@ RectTransform:
   m_AnchoredPosition: {x: 607.8031, y: 106.62015}
   m_SizeDelta: {x: 625.641, y: 153.751}
   m_Pivot: {x: 1, y: 0.5}
+--- !u!114 &839995413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 839995411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e2dbca378ae2e44c979b417a4ac063b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  _volumeSlider: {fileID: 0}
 --- !u!1 &848514214
 GameObject:
   m_ObjectHideFlags: 0
@@ -2100,9 +2117,9 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2007726779}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-        m_MethodName: SetMasterVolume
+      - m_Target: {fileID: 839995413}
+        m_TargetAssemblyTypeName: AudioVolumeSlider, Assembly-CSharp
+        m_MethodName: SetVolume
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2217,9 +2234,9 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 831078657}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: SetDifficultyFromDropdown
+      - m_Target: {fileID: 253638796}
+        m_TargetAssemblyTypeName: DifficultyDropdown, Assembly-CSharp
+        m_MethodName: SetDifficulty
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3438,17 +3455,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e331420f35bbb694ab4e5d298dee307d, type: 3}
---- !u!114 &2007726779 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3281060264343309541, guid: e331420f35bbb694ab4e5d298dee307d, type: 3}
-  m_PrefabInstance: {fileID: 2007726778}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ff9fb1ed0664de4d8a39180434e9288, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AudioManager
 --- !u!1 &2011119462
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,8 +1,6 @@
-using NUnit.Framework;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class MischiefManager : MonoBehaviour
@@ -41,6 +39,9 @@ public class MischiefManager : MonoBehaviour
 
         [Min(0.1f)]
         public float completionTime = 10f;
+
+        [Min(1)]
+        public int startingLives = 3;
     }
 
     [Header("Difficulty")]
@@ -110,6 +111,26 @@ public class MischiefManager : MonoBehaviour
         }
     }
 
+    public int StartingLives
+    {
+        get
+        {
+            DifficultySettings settings = GetCurrentSettings();
+
+            if (settings != null)
+            {
+                return settings.startingLives;
+            }
+
+            Debug.LogError(
+                $"No difficulty settings found for {_currentDifficulty}.",
+                this
+            );
+
+            return 0;
+        }
+    }
+
     public void StartMischiefLoop()
     {
         if (_mischiefCoroutine != null)
@@ -135,8 +156,15 @@ public class MischiefManager : MonoBehaviour
 
     private DifficultySettings GetCurrentSettings()
     {
+        if (GameManager.Instance != null)
+        {
+            _currentDifficulty =
+                GameManager.Instance.Difficulty;
+        }
+
         return _difficultySettings.Find(
-            settings => settings.difficulty == _currentDifficulty
+            settings =>
+                settings.difficulty == _currentDifficulty
         );
     }
 
