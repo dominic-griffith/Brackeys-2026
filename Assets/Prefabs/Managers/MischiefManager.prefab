@@ -48,19 +48,23 @@ MonoBehaviour:
   - {fileID: 0}
   _playerHealth: {fileID: 0}
   _damagePerFailure: 1
+  _mischiefLocations: []
   _difficultySettings:
   - difficulty: 0
     minimumTimeBetweenMischief: 8
-    maximumTimeBetweenMischief: 23
+    maximumTimeBetweenMischief: 12
     maximumActiveMischiefs: 3
     completionTime: 15
+    startingLives: 5
   - difficulty: 1
     minimumTimeBetweenMischief: 6
     maximumTimeBetweenMischief: 9
     maximumActiveMischiefs: 3
     completionTime: 10
+    startingLives: 3
   - difficulty: 2
     minimumTimeBetweenMischief: 4
     maximumTimeBetweenMischief: 7
     maximumActiveMischiefs: 4
     completionTime: 8
+    startingLives: 1
