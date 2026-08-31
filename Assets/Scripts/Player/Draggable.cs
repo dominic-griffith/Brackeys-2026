@@ -14,6 +14,8 @@ public class Draggable : MonoBehaviour
 
     private Vector2 _pointerOffset;
 
+    public bool IsBeingDragged { get; private set; }
+
     public void BeginDrag(Vector2 pointerPosition)
     {
         if (!_canDrag)
@@ -22,6 +24,7 @@ public class Draggable : MonoBehaviour
         // Remember the distance between the pointer and object center.
         _pointerOffset = (Vector2)transform.position - pointerPosition;
 
+        IsBeingDragged = true;
         _onDragStarted?.Invoke();
     }
 
@@ -40,6 +43,7 @@ public class Draggable : MonoBehaviour
         if (!_canDrag)
             return;
 
+        IsBeingDragged = false;
         _onDragEnded?.Invoke();
     }
 
